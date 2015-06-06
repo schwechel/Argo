@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Argo.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,6 +11,9 @@ namespace Argo.Controllers
     {
         public ActionResult Index()
         {
+            ArgoContext context = new ArgoContext();
+            List<Bus> buses = context.Buses.ToList();
+            
             return View();
         }
 
