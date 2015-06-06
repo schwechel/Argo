@@ -75,7 +75,7 @@
 <br><br/>
 <div class="row">
     <h2 class="col-md-12"> Popular Events </h2> 
-    @foreach(var item in Model.Take(3))
+    @foreach(var item in Model)
     {
         <div class="col-md-4">
             <h2>@Html.DisplayFor(modelItem => item.Event)</h2>
