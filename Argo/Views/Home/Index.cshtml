@@ -79,10 +79,10 @@
     {
         <div class="col-md-4">
             <h2>@Html.DisplayFor(modelItem => item.Event)</h2>
-            <p>@Html.DisplayFor(modelItem => item.EventDescription)</p>
+            <p> @Html.DisplayFor(modelItem => item.EventDescription) </p>
             <p> From: @Html.DisplayFor(modelItem => item.Departure)  To: @Html.DisplayFor(modelItem => item.Destination) </p>
             <p> Seats Available: @Html.DisplayFor(modelItem => item.Bus.SeatsAvailable)</p>
-            <p> Price: @Html.DisplayFor(modelItem => item.Bus.Price) </p>
+            <p> Price: $@Html.DisplayFor(modelItem => item.Bus.Price) </p>
             <p>@Html.ActionLink("Reserve Seat", "Details", "Trips", new { id = item.Id }, new { @class = "btn btn-default" })</p>
         </div>
     }
