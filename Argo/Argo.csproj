@@ -185,6 +185,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ArgoContext.cs" />
     <Compile Include="Models\Bus.cs" />
+    <Compile Include="Models\CreateTripViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Trip.cs" />

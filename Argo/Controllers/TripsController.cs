@@ -46,19 +46,23 @@ namespace Argo.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Departure,Destination,DepartTime,ReturnTime,Type,Event,Busid")] Trip trip)
+        public ActionResult Create([Bind(Include = "Id,Departure,Destination,DepartTime,ReturnTime,Event")] Trip trip, FormCollection frm)
         {
             if (ModelState.IsValid)
             {
+                Bus b = new Bus();
+
+                b.NumberOfSeats = int.Parse(frm["rgNumberSeats"]);
+
+                b.Price = 200 + trip.ReturnTime.Subtract(trip.DepartTime).TotalHours * 60; //$200 flat fee + $60 per hour (or $1 per minute)
+
+                b.SeatsAvailable = b.NumberOfSeats - 1;
+                db.Buses.Add(b);
+                db.SaveChanges();
+
+                trip.Busid = b.Id;
+                trip.Type = int.Parse(frm["rgType"]);
                 db.Trips.Add(trip);
-
-                //Bus b = new Bus();
-
-                //b.NumberOfSeats = 40;
-                //b.Price = 400;
-                //b.SeatsAvailable = b.NumberOfSeats - 1;
-                //db.Buses.Add(b);
-
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
