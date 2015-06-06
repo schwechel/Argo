@@ -14,6 +14,7 @@ namespace Argo.Models
         public DateTime ReturnTime { get; set; }
         public int Type { get; set; }
         public string Event { get; set; }
+        public string EventDescription { get; set; }
         public int Busid { get; set; }
         public Bus Bus { get; set; }
         public String TypeDisplay

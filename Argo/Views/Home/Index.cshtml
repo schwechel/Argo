@@ -78,19 +78,19 @@
     @foreach(var item in Model.Take(3))
     {
         <div class="col-md-4">
-            <h2>@Html.DisplayFor(modelItem => item.Busid)</h2>
-            <p> Kenny Chesney Concert at Lambeau Field </p>
-            <p> From: Milwaukee  To: Green Bay </p>
-            <p> Seats Available: @Html.Display(modelItem => .NumberOfSeats)</p>
-            <p> Price: $20 </p>
-            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Reserve Seat &raquo;</a></p>
+            <h2>@Html.DisplayFor(modelItem => item.Event)</h2>
+            <p>@Html.DisplayFor(modelItem => item.EventDescription)</p>
+            <p> From: @Html.DisplayFor(modelItem => item.Departure)  To: @Html.DisplayFor(modelItem => item.Destination) </p>
+            <p> Seats Available: @Html.DisplayFor(modelItem => item.Bus.SeatsAvailable)</p>
+            <p> Price: @Html.DisplayFor(modelItem => item.Bus.Price) </p>
+            <p>@Html.ActionLink("Reserve Seat", "Details", "Trips", new { id = item.Id }, new { @class = "btn btn-default" })</p>
         </div>
     }
-    <div class="col-md-4">
+    <!--<div class="col-md-4">
         <h2>Kenny Chesney Concert (6/20)</h2>
         <p> Kenny Chesney Concert at Lambeau Field </p>
         <p> From: Milwaukee  To: Green Bay </p>
-        <p> Seats Available: @Html.Display(modelItem => .NumberOfSeats)</p>
+        <p> Seats Available:</p>
         <p> Price: $20 </p>
         <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Reserve Seat &raquo;</a></p>
     </div>
@@ -109,43 +109,5 @@
         <p> Seats Available: 25/50 </p>
         <p> Price: </p>
         <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Reserve Seat &raquo;</a></p>
-    </div>
+    </div> -->
 </div>
-
-
-
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.NumberOfSeats)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Price)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SeatsAvailable)
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.NumberOfSeats)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SeatsAvailable)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-            </td>
-        </tr>
-    }
-
-</table>

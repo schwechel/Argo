@@ -12,9 +12,7 @@ namespace Argo.Controllers
         public ActionResult Index()
         {
             ArgoContext context = new ArgoContext();
-            List<Bus> buses = context.Buses.ToList();
-            
-            return View(buses);
+            return View(context.Trips.Take(3));
         }
 
         public ActionResult About()
