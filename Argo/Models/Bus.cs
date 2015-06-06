@@ -11,5 +11,12 @@ namespace Argo.Models
         public int NumberOfSeats {get;set;}
         public double Price { get; set; }
         public int SeatsAvailable { get; set; }
+        public double PricePerSeat
+        {
+            get
+            {
+                return Price / (NumberOfSeats - SeatsAvailable);
+            }
+        }
     }
 }

@@ -17,7 +17,7 @@ namespace Argo.Controllers
         // GET: Trips
         public ActionResult Index()
         {
-            return View(db.Trips.ToList());
+            return View(db.Trips.Include(x => x.Bus).Take(3).ToList());
         }
 
         // GET: Trips/Details/5
