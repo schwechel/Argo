@@ -15,5 +15,20 @@ namespace Argo.Models
         public int Type { get; set; }
         public string Event { get; set; }
         public int Busid { get; set; }
+        public Bus Bus { get; set; }
+        public String TypeDisplay
+        {
+            get
+            {
+                if (Type == 1)
+                {
+                    return "Round Trip";
+                }
+                else
+                {
+                    return "One Way";
+                }
+            }
+        }
     }
 }
