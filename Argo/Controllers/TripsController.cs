@@ -51,6 +51,14 @@ namespace Argo.Controllers
             if (ModelState.IsValid)
             {
                 db.Trips.Add(trip);
+
+                //Bus b = new Bus();
+
+                //b.NumberOfSeats = 40;
+                //b.Price = 400;
+                //b.SeatsAvailable = b.NumberOfSeats - 1;
+                //db.Buses.Add(b);
+
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
