@@ -159,8 +159,11 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BusesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\TripsController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -230,6 +233,21 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Trips\Create.cshtml" />
+    <Content Include="Views\Trips\Delete.cshtml" />
+    <Content Include="Views\Trips\Details.cshtml" />
+    <Content Include="Views\Trips\Edit.cshtml" />
+    <Content Include="Views\Trips\Index.cshtml" />
+    <Content Include="Views\Buses\Create.cshtml" />
+    <Content Include="Views\Buses\Delete.cshtml" />
+    <Content Include="Views\Buses\Details.cshtml" />
+    <Content Include="Views\Buses\Edit.cshtml" />
+    <Content Include="Views\Buses\Index.cshtml" />
+    <Content Include="Views\Users\Create.cshtml" />
+    <Content Include="Views\Users\Delete.cshtml" />
+    <Content Include="Views\Users\Details.cshtml" />
+    <Content Include="Views\Users\Edit.cshtml" />
+    <Content Include="Views\Users\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
