@@ -1,31 +1,151 @@
-﻿@{
+﻿@model IEnumerable<Argo.Models.Trip>
+@{
     ViewBag.Title = "Home Page";
 }
 
+
 <div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    <h1>ARGO</h1>
+    <p class="lead">ARGO is a easy-to-use platform to schedule transportation via bus from your local area to a group event.</p>
+    <!--<p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>-->
 </div>
 
+<!--<form method="get" action="http://www.mysite.com/search.php">-->
+    <table bgcolor="#FFFF00" cellpadding="0px" cellspacing="0px">
+        <tr>
+            <td style="border-style:none;">
+                <div style="background: url(roundbox.gif) no-repeat left top; padding: 0px; height: 22px;">
+                    <input type="text" name="zoom_query" style="border: ridge; background-color: lightyellow; width: 700px; padding-left: 5px; padding-right: 5px;">
+                </div>
+            </td>
+            <td style="border-style:none;">
+                <input type="submit" value="" style="border-style: none; background: url('searchbutton1.gif') no-repeat; width: 24px; height: 22px;">
+            </td>
+            Search By:
+            <select name="filter1">
+                <option value="Destination">Destination</option>
+                <option value="Date">Date</option>
+                <option value="Start Location">Start Location</option>
+            </select>
+        </tr>
+    </table>
+
+<!--<div class="gh-dd header-search">
+    <form action="/d/" method="GET" class="responsive-form" id="search-autocomplete">
+        <div class="search-autocomplete js-header-search-autocomplete is-init">
+            <a href="#" class="hide-large js-header-search-icon mobile-action-b js-mx-track-click" title="Search"
+               data-mixpanel-internal-click="" data-mixpanel-action="Global Header Interaction" data-mixpanel-interaction-type="Click" data-mixpanel-element-name="Search for events" data-mixpanel-logged-in-status="Logged Out">
+                <i class="ico-search header-search-icon"></i>
+                <span class="is-hidden-accessible">Search menu</span>
+            </a>
+
+            <div class="search-autocomplete__query-input js-search-query-area show-large">
+                <div class="responsive-form__input--icon js-d-clearable-input">
+                    <label for="q" class="is-hidden-accessible">Search for events</label>
+                    <div class="responsive-form__input--icon__container show-large">
+                        <i class="ico-search js-search-query-icon"></i>
+                    </div>
+                    <input type="search" class="js-search-query-input js-mx-track-click" id="q" name="q" placeholder="Search for events"
+                           data-mixpanel-internal-click="" data-mixpanel-action="Global Header Interaction" data-mixpanel-interaction-type="Click" data-mixpanel-element-name="Search for events" data-mixpanel-logged-in-status="Logged Out"
+                           data-role="none" />
+                </div>
+            </div>
+
+            <div class="js-header-location-autocomplete search-autocomplete__location is-hidden">
+                <div class="js-search-location-edit responsive-form__input--icon js-d-clearable-input">
+                    <div class="responsive-form__input--icon__container show-large">
+                        <i class="ico-location js-search-location-icon"></i>
+                    </div>
+                    <label for="loc" class="is-hidden-accessible">change the location of your search</label>
+                    <input id="loc" name="loc" type="text"
+                           data-mixpanel-internal-click="" data-mixpanel-action="Global Header Interaction" data-mixpanel-interaction-type="Click" data-mixpanel-element-name="Change location" data-mixpanel-logged-in-status="Logged Out"
+                           class="js-search-location-input search-autocomplete-input--large js-mx-track-click"
+                           value="United States"
+                           placeholder="Enter city or location"
+                           autocomplete="off" />
+                </div>
+                <div class="search-autocomplete__button">
+                    <input data-mixpanel-internal-click="1" data-mixpanel-action="Global Header Interaction" data-mixpanel-interaction-type="Click" data-mixpanel-element-name="Search for events submit" data-mixpanel-logged-in-status="Logged Out" type="submit" data-role="none" class="js-search-submit js-mx-track-click" value="&#xf306;" alt="Search">
+                </div>
+            </div>
+        </div>
+    </form>
+</div>-->
+<!--</form>-->
+<br><br/>
 <div class="row">
+    <h2 class="col-md-12"> Popular Events </h2> 
+    @foreach(var item in Model.Take(3))
+    {
+        <div class="col-md-4">
+            <h2>@Html.DisplayFor(modelItem => item.Busid)</h2>
+            <p> Kenny Chesney Concert at Lambeau Field </p>
+            <p> From: Milwaukee  To: Green Bay </p>
+            <p> Seats Available: @Html.Display(modelItem => .NumberOfSeats)</p>
+            <p> Price: $20 </p>
+            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Reserve Seat &raquo;</a></p>
+        </div>
+    }
     <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+        <h2>Kenny Chesney Concert (6/20)</h2>
+        <p> Kenny Chesney Concert at Lambeau Field </p>
+        <p> From: Milwaukee  To: Green Bay </p>
+        <p> Seats Available: @Html.Display(modelItem => .NumberOfSeats)</p>
+        <p> Price: $20 </p>
+        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Reserve Seat &raquo;</a></p>
     </div>
     <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+        <h2>Summerset Music Festival (8/13)</h2>
+        <p> Summerset Music Festival in Somerset, Wisconsin.</p>
+        <p> From: Milwaukee  To: Somerset </p>
+        <p> Seats Available: 5/40 </p>
+        <p> Price: $15 </p>
+        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Reserve Seat &raquo;</a></p>
     </div>
     <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+        <h2>Rolling Stones Concert (7/01)</h2>
+        <p> Rolling Stones Concert at the Marcus Ampitheater.</p>
+        <p> From: Madison  To: Milwaukee </p>
+        <p> Seats Available: 25/50 </p>
+        <p> Price: </p>
+        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Reserve Seat &raquo;</a></p>
     </div>
 </div>
+
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NumberOfSeats)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SeatsAvailable)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumberOfSeats)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SeatsAvailable)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>

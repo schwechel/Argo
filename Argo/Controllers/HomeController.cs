@@ -14,7 +14,7 @@ namespace Argo.Controllers
             ArgoContext context = new ArgoContext();
             List<Bus> buses = context.Buses.ToList();
             
-            return View();
+            return View(buses);
         }
 
         public ActionResult About()
