@@ -42,79 +42,20 @@
             <p> Seats Available: @Html.DisplayFor(modelItem => item.Bus.SeatsAvailable)</p>
             <p> Price: $@Html.DisplayFor(modelItem => item.Bus.PricePerSeat) </p>
 
-            <style type="text/css">
-                .tg {
-                    border-collapse: collapse;
-                    border-spacing: 0;
-                    margin: 0px auto;
+            <table border="1">
+                @for (int i = item.Bus.NumberOfSeats; i >= 1; i--)
+                {
+                    if (i > item.Bus.NumberOfSeats - item.Bus.SeatsAvailable)
+                    {
+                        <tr><td>&nbsp;</td><td style="border-color:white;">@i</td></tr>
+                    }
+                    else
+                    {
+                        <tr style="background-color:red;"><td>&nbsp;</td><td style="border-color:white;">@i</td></tr>
+                    }
                 }
-
-                    .tg td {
-                        font-family: Arial, sans-serif;
-                        font-size: 14px;
-                        padding: 20px 10px;
-                        border-style: solid;
-                        border-width: 1px;
-                        overflow: hidden;
-                        word-break: normal;
-                    }
-
-                    .tg th {
-                        font-family: Arial, sans-serif;
-                        font-size: 14px;
-                        font-weight: normal;
-                        padding: 20px 10px;
-                        border-style: solid;
-                        border-width: 1px;
-                        overflow: hidden;
-                        word-break: normal;
-                    }
-
-                    .tg .tg-4mn7 {
-                        background-color: #ffffff;
-                        border-color: #fff;
-                        
-                        color: #000;
-                    }
-
-                    .tg .tg-pszp {
-                        font-style: italic;
-                        text-decoration: underline;
-                        background-color: #fe0000;
-                        color: #000000;
-                        text-align: center;
-                    }
-
-                    .tg .tg-o7u3 {
-                        font-weight: bold;
-                        background-color: #fe0000;
-                        color: #000000;
-                        text-align: center;
-                    }
-            </style>
-            <table class="tg">
-                <tr>
-                    <th class="tg-4mn7"> 50 </th>
-                    <th class="tg-pszp"></th>
-                </tr>
-                <tr>
-                    <td class="tg-4mn7"> 40 </td>
-                    <td class="tg-o7u3"></td>
-                </tr>
-                <tr>
-                    <td class="tg-4mn7"> 30 </td>
-                    <td class="tg-o7u3"></td>
-                </tr>
-                <tr>
-                    <td class="tg-4mn7"> 20 </td>
-                    <td class="tg-o7u3"></td>
-                </tr>
-                <tr>
-                    <td class="tg-4mn7"> 10 </td>
-                    <td class="tg-o7u3"></td>
-                </tr>
             </table>
-            
+
             <br><br/>
             <p>@Html.ActionLink("Reserve Seat", "Details", "Trips", new { id = item.Id }, new { @class = "btn btn-default" })</p>
         </div>
