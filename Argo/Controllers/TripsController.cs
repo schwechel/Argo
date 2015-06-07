@@ -27,7 +27,7 @@ namespace Argo.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Trip trip = db.Trips.Find(id);
+            Trip trip = db.Trips.Include(x => x.Bus).Where(x => x.Id == id).FirstOrDefault();
             if (trip == null)
             {
                 return HttpNotFound();
@@ -98,6 +98,22 @@ namespace Argo.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            return View(trip);
+        }
+
+        public ActionResult Confirm(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Trip trip = db.Trips.Include(x => x.Bus).Where(x => x.Id == id).FirstOrDefault();
+            if (trip == null)
+            {
+                return HttpNotFound();
+            }
+            trip.Bus.SeatsAvailable -= 1;
+            db.SaveChanges();
             return View(trip);
         }
 

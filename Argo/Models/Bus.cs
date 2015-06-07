@@ -15,7 +15,15 @@ namespace Argo.Models
         {
             get
             {
-                return Price / (NumberOfSeats - SeatsAvailable);
+                double price = Price / (NumberOfSeats - SeatsAvailable);
+                if(price > 50)
+                {
+                    return 50;
+                }
+                else
+                {
+                    return Price / (NumberOfSeats - SeatsAvailable);
+                }
             }
         }
     }
