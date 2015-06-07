@@ -1,14 +1,14 @@
 ﻿@model Argo.Models.Trip
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Confirm";
 }
 
-<h2>@Html.DisplayFor(model => model.Event)</h2>
+<h2>Trip Confirmed!</h2>
 
 <div class="row">
     <div class="col-lg-4">
-        <h4>@Html.DisplayFor(model => model.EventDescription)</h4>
+        <h4>@Html.DisplayFor(model => model.Event)</h4>
         <h4>@Model.DepartTime.DayOfWeek - @Model.DepartTime.ToShortDateString()</h4>
         <hr />
         <dl class="dl-horizontal">
@@ -59,7 +59,12 @@
             <h1>
                 $@Html.DisplayFor(model => model.Bus.PricePerSeat) Per Seat
             </h1>
-            @Html.ActionLink("Book A Seat", "Confirm", "Trips", new { id = Model.Id }, new {@class="btn btn-primary" })
+
+            <p>
+                @Html.ActionLink("Back to Trip", "Details", new { id = Model.Id }, new { @class = "btn btn-primary" })
+                @Html.ActionLink("Back to Home", "Index", "Home", new { @class = "btn btn-default" })
+            </p>
+
         </dl>
     </div>
     <div class="col-lg-8">
