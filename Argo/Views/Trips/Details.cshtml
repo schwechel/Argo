@@ -10,60 +10,47 @@
     <div class="col-lg-4">
         <h3>@Html.DisplayFor(model => model.EventDescription)</h3>
         <h3>@Model.DepartTime.DayOfWeek - @Model.DepartTime.ToShortDateString()</h3>
-        <hr />
-        <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayNameFor(model => model.Departure)
-            </dt>
+        
+        <div class="dl-horizontal" style="font-size: larger; position: relative" >
+            <div>
+                @Html.DisplayNameFor(model => model.Departure):  @Html.DisplayFor(model => model.Departure)
+            </div>
 
-            <dd>
-                @Html.DisplayFor(model => model.Departure)
-            </dd>
+            <div>
+                @Html.DisplayNameFor(model => model.Destination):  @Html.DisplayFor(model => model.Destination)
+            </div>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.Destination)
-            </dt>
+            <div>
+                @Html.DisplayNameFor(model => model.DepartTime):  @Model.DepartTime.ToShortTimeString()
+            </div>
 
-            <dd>
-                @Html.DisplayFor(model => model.Destination)
-            </dd>
+            <div>
+                @Html.DisplayNameFor(model => model.ReturnTime):  @Model.ReturnTime.ToShortTimeString()
+            </div>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.DepartTime)
-            </dt>
+            <div>
+                @Html.DisplayNameFor(model => model.Type):  @Html.DisplayFor(model => model.TypeDisplay)
+            </div>
 
-            <dd>
-                @Model.DepartTime.ToShortTimeString()
-            </dd>
+            <h3>
+                @if((Model.Bus.SeatsAvailable) > 5)
+                {
+                    @(Model.Bus.SeatsAvailable)  @:Seats Left
+                }
+                else
+                { 
+                    @:Only @(Model.Bus.SeatsAvailable) Seats Left!
+                }
+            </h3>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.ReturnTime)
-            </dt>
-
-            <dd>
-                @Model.ReturnTime.ToShortTimeString()
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.Type)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.TypeDisplay)
-            </dd>
-
-            <h2>
-                @(Model.Bus.SeatsAvailable)  Seats Left
-            </h2>
-
-            <h2>
+            <h3>
                 $@Html.DisplayFor(model => model.Bus.PricePerSeat) Per Seat
-            </h2>
+            </h3>
   
-            <h3> Lowest Potential Price: @((Model.Bus.Price / Model.Bus.NumberOfSeats).ToString("C0")) </h3>
+            <h5> Lowest Potential Price: @((Model.Bus.Price / Model.Bus.NumberOfSeats).ToString("C0")) </h5>
             <br><br />
             @Html.ActionLink("Book A Seat", "Confirm", "Trips", new { id = Model.Id }, new {@class="btn btn-primary" })
-        </dl>
+        </div>
     </div>
     <div class="col-lg-8">
         <iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d737390.8473108283!2d-88.73176516169346!3d43.784627486191084!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e6!4m5!1s0x880502d7578b47e7%3A0x445f1922b5417b84!2sMilwaukee%2C+WI!3m2!1d43.0389025!2d-87.9064736!4m5!1s0x8802e2e809b380f3%3A0x6370045214dcf571!2sGreen+Bay%2C+WI!3m2!1d44.519158999999995!2d-88.019826!5e0!3m2!1sen!2sus!4v1433637424964" width="600" height="450" frameborder="0" style="border:0"></iframe>
