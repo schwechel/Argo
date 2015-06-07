@@ -41,7 +41,8 @@
                     <td>
                         <h2> @Html.DisplayFor(modelItem => item.Event)</h2>
                         <p>@Html.DisplayFor(modelItem => item.EventDescription)</p>
-                        <p> From: @Html.DisplayFor(modelItem => item.Departure)  To: @Html.DisplayFor(modelItem => item.Destination) </p>
+                        <p> From: @Html.DisplayFor(modelItem => item.Departure) </p>
+                        <p> To: @Html.DisplayFor(modelItem => item.Destination)</p>
                         <h4> $@Html.DisplayFor(modelItem => item.Bus.PricePerSeat) per seat</h4>
                     </td>
                     <td>
