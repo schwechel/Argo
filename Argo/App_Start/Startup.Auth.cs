@@ -54,15 +54,15 @@ namespace Argo
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "1450827381880657",
+               appSecret: "bb55a35b4c21043d0cac0dabe7fdc489");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "754528769002-k2hcmbb51igmfbqsr9kj2prf2fsohgtg.apps.googleusercontent.com",
+                ClientSecret = "GjYSugun85Cg9YVRQskFcJ4b"
+            });
         }
     }
 }
