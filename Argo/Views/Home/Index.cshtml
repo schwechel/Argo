@@ -42,16 +42,16 @@
             <p> Seats Available: @Html.DisplayFor(modelItem => item.Bus.SeatsAvailable)</p>
             <p> Price: $@Html.DisplayFor(modelItem => item.Bus.PricePerSeat) </p>
 
-            <table border="1">
+            <table>
                 @for (int i = item.Bus.NumberOfSeats; i >= 1; i--)
                 {
                     if (i > item.Bus.NumberOfSeats - item.Bus.SeatsAvailable)
                     {
-                        <tr><td>&nbsp;</td><td style="border-color:white; background-color: transparent">@i</td></tr>
+                        <tr><td style="border:solid; border-color:black;">&nbsp;</td><td style="border-color:white;">@i</td></tr>
                     }
                     else
                     {
-                        <tr style="background-color:red;"><td>&nbsp;</td><td style="border-color:white;">@i</td></tr>
+                        <tr><td width="50px;" style="border:solid; border-color:black; background-color:red;">&nbsp;</td><td style="border-color:white;">@i</td></tr>
                     }
                 }
             </table>
@@ -61,70 +61,3 @@
         </div>
     }
 </div>
-
-
-
-
-<!--<div>
-    <style type="text/css">
-        .tg {
-            border-collapse: collapse;
-            border-spacing: 0;
-            margin: 0px auto;
-            float: inherit;
-        }
-
-            .tg td {
-                font-family: Arial, sans-serif;
-                font-size: 14px;
-                padding: 20px 10px;
-                border-style: solid;
-                border-width: 1px;
-                overflow: hidden;
-                word-break: normal;
-            }
-
-            .tg th {
-                font-family: Arial, sans-serif;
-                font-size: 14px;
-                font-weight: normal;
-                padding: 20px 10px;
-                border-style: solid;
-                border-width: 1px;
-                overflow: hidden;
-                word-break: normal;
-            }
-
-            .tg .tg-pszp {
-                font-style: italic;
-                text-decoration: underline;
-                background-color: #fe0000;
-                color: #000000;
-            }
-
-            .tg .tg-o7u3 {
-                font-weight: bold;
-                background-color: #fe0000;
-                color: #000000;
-            }
-    </style>
-
-    <table class="tg">
-        <tr>
-            <th class="tg-pszp"></th>
-        </tr>
-        <tr>
-            <td class="tg-o7u3"></td>
-        </tr>
-        <tr>
-            <td class="tg-o7u3"></td>
-        </tr>
-        <tr>
-            <td class="tg-o7u3"></td>
-        </tr>
-        <tr>
-            <td class="tg-o7u3"></td>
-        </tr>
-    </table>
-</div>
-                </div> -->
