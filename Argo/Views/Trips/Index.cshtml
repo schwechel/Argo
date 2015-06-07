@@ -17,7 +17,8 @@
         <p>@Html.DisplayFor(modelItem => item.EventDescription)</p>
         <p> From: @Html.DisplayFor(modelItem => item.Departure)  To: @Html.DisplayFor(modelItem => item.Destination) </p>
         <p> Date: @item.DepartTime.ToShortDateString()</p>
-        <p> Depart Time: @Html.DisplayFor(modelItem => item.DepartTime.TimeOfDay) Return Time: @Html.DisplayFor(modelItem => item.ReturnTime.TimeOfDay)</p>
+        <p> Depart Time: @Html.DisplayFor(modelItem => item.DepartTime.TimeOfDay)</p>
+        <p> Return Time: @Html.DisplayFor(modelItem => item.ReturnTime.TimeOfDay)</p>
         <p> @Html.DisplayFor(modelItem => item.TypeDisplay)</p>
         <p> Seats Available: @Html.DisplayFor(modelItem => item.Bus.SeatsAvailable)</p>
         <p> Price: $@Html.DisplayFor(modelItem => item.Bus.PricePerSeat) </p>
