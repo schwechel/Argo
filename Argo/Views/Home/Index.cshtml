@@ -4,9 +4,9 @@
 }
 
 
-<div class="jumbotron">
-    <h1>ARGO</h1>
-    <p class="lead">ARGO is a easy-to-use platform to schedule transportation via bus from your local area to a group event.</p>
+<div class="jumbotron" style="background-color:#FFD800;">
+    <h1>ARGO Bus Share</h1>
+    <p class="lead"><strong>A</strong> <strong>R</strong>evolutionary <strong>G</strong>roup <strong>O</strong>rganizer is a easy-to-use platform to schedule transportation via bus from your local area to a group event.</p>
     <!--<p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>-->
 </div>
 
@@ -36,26 +36,31 @@
     @foreach(var item in Model)
     {
         <div class="col-md-4">
-            <h2> @Html.DisplayFor(modelItem => item.Event)</h2>
-            <p>@Html.DisplayFor(modelItem => item.EventDescription)</p>
-            <p> From: @Html.DisplayFor(modelItem => item.Departure)  To: @Html.DisplayFor(modelItem => item.Destination) </p>
-            <p> Seats Available: @Html.DisplayFor(modelItem => item.Bus.SeatsAvailable)</p>
-            <p> Price: $@Html.DisplayFor(modelItem => item.Bus.PricePerSeat) </p>
-
             <table>
-                @for (int i = item.Bus.NumberOfSeats; i >= 1; i = i - 5)
-                {
-                    if (i > item.Bus.NumberOfSeats - item.Bus.SeatsAvailable)
-                    {
-                        <tr><td style="border:solid; border-color:black;">&nbsp;</td><td style="border-color:white;">@i</td></tr>
-                    }
-                    else
-                    {
-                        <tr><td width="50px;" style="border:solid; border-color:black; background-color:red;">&nbsp;</td><td style="border-color:white;">@i</td></tr>
-                    }
-                }
+                <tr>
+                    <td>
+                        <h2> @Html.DisplayFor(modelItem => item.Event)</h2>
+                        <p>@Html.DisplayFor(modelItem => item.EventDescription)</p>
+                        <p> From: @Html.DisplayFor(modelItem => item.Departure)  To: @Html.DisplayFor(modelItem => item.Destination) </p>
+                        <h4> $@Html.DisplayFor(modelItem => item.Bus.PricePerSeat) per seat</h4>
+                    </td>
+                    <td>
+                        <table>
+                            @for (int i = item.Bus.NumberOfSeats; i >= 1; i = i - 5)
+                            {
+                                if (i > item.Bus.NumberOfSeats - item.Bus.SeatsAvailable)
+                                {
+                                    <tr><td style="border:solid; border-color:black;">&nbsp;</td><td style="border-color:white;">@i</td></tr>
+                                }
+                                else
+                                {
+                                    <tr><td width="50px;" style="border:solid; border-color:black; background-color:red;">&nbsp;</td><td style="border-color:white;">@i</td></tr>
+                                }
+                            }
+                        </table>
+                    </td>
+                </tr>
             </table>
-
             <br><br/>
             <p>@Html.ActionLink("Reserve Seat", "Details", "Trips", new { id = item.Id }, new { @class = "btn btn-default" })</p>
         </div>

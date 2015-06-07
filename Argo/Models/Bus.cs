@@ -22,15 +22,13 @@ namespace Argo.Models
                 }
                 double pricePer = Price / temp;
 
-                double price = Price / (NumberOfSeats - SeatsAvailable);
-                if(price > 50 || pricePer > 50)
+                if(pricePer > 50)
                 {
                     return 50;
                 }
                 else
                 {
-                    return pricePer;
-                        //Math.Round(Price / (NumberOfSeats - SeatsAvailable), 2);
+                    return Math.Round(pricePer, 2);
                 }
             }
         }
