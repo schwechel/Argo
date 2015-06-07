@@ -20,7 +20,7 @@
         <p> Depart Time: @Html.DisplayFor(modelItem => item.DepartTime.TimeOfDay) Return Time: @Html.DisplayFor(modelItem => item.ReturnTime.TimeOfDay)</p>
         <p> @Html.DisplayFor(modelItem => item.TypeDisplay)</p>
         <p> Seats Available: @Html.DisplayFor(modelItem => item.Bus.SeatsAvailable)</p>
-        <p> Price: @Html.DisplayFor(modelItem => item.Bus.Price) </p>
+        <p> Price: @Html.DisplayFor(modelItem => item.Bus.PricePerSeat) </p>
         <p>@Html.ActionLink("Reserve Seat", "Details", "Trips", new { id = item.Id }, new { @class = "btn btn-default" })</p>
     </div>
 }
