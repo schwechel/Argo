@@ -30,84 +30,160 @@
         </tr>
     </table>
 
-<!--<div class="gh-dd header-search">
-    <form action="/d/" method="GET" class="responsive-form" id="search-autocomplete">
-        <div class="search-autocomplete js-header-search-autocomplete is-init">
-            <a href="#" class="hide-large js-header-search-icon mobile-action-b js-mx-track-click" title="Search"
-               data-mixpanel-internal-click="" data-mixpanel-action="Global Header Interaction" data-mixpanel-interaction-type="Click" data-mixpanel-element-name="Search for events" data-mixpanel-logged-in-status="Logged Out">
-                <i class="ico-search header-search-icon"></i>
-                <span class="is-hidden-accessible">Search menu</span>
-            </a>
-
-            <div class="search-autocomplete__query-input js-search-query-area show-large">
-                <div class="responsive-form__input--icon js-d-clearable-input">
-                    <label for="q" class="is-hidden-accessible">Search for events</label>
-                    <div class="responsive-form__input--icon__container show-large">
-                        <i class="ico-search js-search-query-icon"></i>
-                    </div>
-                    <input type="search" class="js-search-query-input js-mx-track-click" id="q" name="q" placeholder="Search for events"
-                           data-mixpanel-internal-click="" data-mixpanel-action="Global Header Interaction" data-mixpanel-interaction-type="Click" data-mixpanel-element-name="Search for events" data-mixpanel-logged-in-status="Logged Out"
-                           data-role="none" />
-                </div>
-            </div>
-
-            <div class="js-header-location-autocomplete search-autocomplete__location is-hidden">
-                <div class="js-search-location-edit responsive-form__input--icon js-d-clearable-input">
-                    <div class="responsive-form__input--icon__container show-large">
-                        <i class="ico-location js-search-location-icon"></i>
-                    </div>
-                    <label for="loc" class="is-hidden-accessible">change the location of your search</label>
-                    <input id="loc" name="loc" type="text"
-                           data-mixpanel-internal-click="" data-mixpanel-action="Global Header Interaction" data-mixpanel-interaction-type="Click" data-mixpanel-element-name="Change location" data-mixpanel-logged-in-status="Logged Out"
-                           class="js-search-location-input search-autocomplete-input--large js-mx-track-click"
-                           value="United States"
-                           placeholder="Enter city or location"
-                           autocomplete="off" />
-                </div>
-                <div class="search-autocomplete__button">
-                    <input data-mixpanel-internal-click="1" data-mixpanel-action="Global Header Interaction" data-mixpanel-interaction-type="Click" data-mixpanel-element-name="Search for events submit" data-mixpanel-logged-in-status="Logged Out" type="submit" data-role="none" class="js-search-submit js-mx-track-click" value="&#xf306;" alt="Search">
-                </div>
-            </div>
-        </div>
-    </form>
-</div>-->
-<!--</form>-->
 <br><br/>
 <div class="row">
     <h2 class="col-md-12"> Popular Events </h2> 
     @foreach(var item in Model)
     {
         <div class="col-md-4">
-            <h2>@Html.DisplayFor(modelItem => item.Event)</h2>
+            <h2> @Html.DisplayFor(modelItem => item.Event)</h2>
             <p>@Html.DisplayFor(modelItem => item.EventDescription)</p>
             <p> From: @Html.DisplayFor(modelItem => item.Departure)  To: @Html.DisplayFor(modelItem => item.Destination) </p>
             <p> Seats Available: @Html.DisplayFor(modelItem => item.Bus.SeatsAvailable)</p>
-            <p> Price: @Html.DisplayFor(modelItem => item.Bus.PricePerSeat) </p>
+            <p> Price: $@Html.DisplayFor(modelItem => item.Bus.PricePerSeat) </p>
+
+            <style type="text/css">
+                .tg {
+                    border-collapse: collapse;
+                    border-spacing: 0;
+                    margin: 0px auto;
+                }
+
+                    .tg td {
+                        font-family: Arial, sans-serif;
+                        font-size: 14px;
+                        padding: 20px 10px;
+                        border-style: solid;
+                        border-width: 1px;
+                        overflow: hidden;
+                        word-break: normal;
+                    }
+
+                    .tg th {
+                        font-family: Arial, sans-serif;
+                        font-size: 14px;
+                        font-weight: normal;
+                        padding: 20px 10px;
+                        border-style: solid;
+                        border-width: 1px;
+                        overflow: hidden;
+                        word-break: normal;
+                    }
+
+                    .tg .tg-4mn7 {
+                        background-color: #ffffff;
+                        border-color: #fff;
+                        
+                        color: #000;
+                    }
+
+                    .tg .tg-pszp {
+                        font-style: italic;
+                        text-decoration: underline;
+                        background-color: #fe0000;
+                        color: #000000;
+                        text-align: center;
+                    }
+
+                    .tg .tg-o7u3 {
+                        font-weight: bold;
+                        background-color: #fe0000;
+                        color: #000000;
+                        text-align: center;
+                    }
+            </style>
+            <table class="tg">
+                <tr>
+                    <th class="tg-4mn7"> 50 </th>
+                    <th class="tg-pszp"></th>
+                </tr>
+                <tr>
+                    <td class="tg-4mn7"> 40 </td>
+                    <td class="tg-o7u3"></td>
+                </tr>
+                <tr>
+                    <td class="tg-4mn7"> 30 </td>
+                    <td class="tg-o7u3"></td>
+                </tr>
+                <tr>
+                    <td class="tg-4mn7"> 20 </td>
+                    <td class="tg-o7u3"></td>
+                </tr>
+                <tr>
+                    <td class="tg-4mn7"> 10 </td>
+                    <td class="tg-o7u3"></td>
+                </tr>
+            </table>
+            
+            <br><br/>
             <p>@Html.ActionLink("Reserve Seat", "Details", "Trips", new { id = item.Id }, new { @class = "btn btn-default" })</p>
         </div>
     }
-    <!--<div class="col-md-4">
-        <h2>Kenny Chesney Concert (6/20)</h2>
-        <p> Kenny Chesney Concert at Lambeau Field </p>
-        <p> From: Milwaukee  To: Green Bay </p>
-        <p> Seats Available:</p>
-        <p> Price: $20 </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Reserve Seat &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Summerset Music Festival (8/13)</h2>
-        <p> Summerset Music Festival in Somerset, Wisconsin.</p>
-        <p> From: Milwaukee  To: Somerset </p>
-        <p> Seats Available: 5/40 </p>
-        <p> Price: $15 </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Reserve Seat &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Rolling Stones Concert (7/01)</h2>
-        <p> Rolling Stones Concert at the Marcus Ampitheater.</p>
-        <p> From: Madison  To: Milwaukee </p>
-        <p> Seats Available: 25/50 </p>
-        <p> Price: </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Reserve Seat &raquo;</a></p>
-    </div> -->
 </div>
+
+
+
+
+<!--<div>
+    <style type="text/css">
+        .tg {
+            border-collapse: collapse;
+            border-spacing: 0;
+            margin: 0px auto;
+            float: inherit;
+        }
+
+            .tg td {
+                font-family: Arial, sans-serif;
+                font-size: 14px;
+                padding: 20px 10px;
+                border-style: solid;
+                border-width: 1px;
+                overflow: hidden;
+                word-break: normal;
+            }
+
+            .tg th {
+                font-family: Arial, sans-serif;
+                font-size: 14px;
+                font-weight: normal;
+                padding: 20px 10px;
+                border-style: solid;
+                border-width: 1px;
+                overflow: hidden;
+                word-break: normal;
+            }
+
+            .tg .tg-pszp {
+                font-style: italic;
+                text-decoration: underline;
+                background-color: #fe0000;
+                color: #000000;
+            }
+
+            .tg .tg-o7u3 {
+                font-weight: bold;
+                background-color: #fe0000;
+                color: #000000;
+            }
+    </style>
+
+    <table class="tg">
+        <tr>
+            <th class="tg-pszp"></th>
+        </tr>
+        <tr>
+            <td class="tg-o7u3"></td>
+        </tr>
+        <tr>
+            <td class="tg-o7u3"></td>
+        </tr>
+        <tr>
+            <td class="tg-o7u3"></td>
+        </tr>
+        <tr>
+            <td class="tg-o7u3"></td>
+        </tr>
+    </table>
+</div>
+                </div> -->
