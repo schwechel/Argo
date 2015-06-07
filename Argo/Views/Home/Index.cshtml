@@ -44,21 +44,41 @@
                         <p> From: @Html.DisplayFor(modelItem => item.Departure) </p>
                         <p> To: @Html.DisplayFor(modelItem => item.Destination)</p>
                         <h4> $@Html.DisplayFor(modelItem => item.Bus.PricePerSeat) per seat</h4>
+                        <table>
+                            <tr>
+                                @for (int i = item.Bus.NumberOfSeats; i >= 1; i = i - 5)
+                                {
+                                    if (i > item.Bus.NumberOfSeats - item.Bus.SeatsAvailable)
+                                    {
+                                        <td style="border:solid; border-color:black;">&nbsp;</td>
+                                    }
+                                    else
+                                    {
+                                        <td width="50px;" style="border:solid; border-color:black; background-color:red;">&nbsp;</td>
+                                    }
+                                }
+                            </tr>
+                            <tr>
+                                @for (int i = item.Bus.NumberOfSeats; i >= 1; i = i - 5)
+                                {
+                                    if (i == 40)
+                                    {
+                                        <td width="50px;" style="border:solid; border-color:white; background-color:white;">$50</td>
+                                    }
+                                    else if (i == 5)
+                                    {
+                                        <td width="50px;" style="border:solid; border-color:white; background-color:white;">$15</td>
+                                    }
+                                    else
+                                    {
+                                        <td width ="50px;" style="border:solid; border-color:white;">&nbsp;</td>
+                                    }
+                                }
+                            </tr>
+                        </table>
                     </td>
                     <td>
-                        <table>
-                            @for (int i = item.Bus.NumberOfSeats; i >= 1; i = i - 5)
-                            {
-                                if (i > item.Bus.NumberOfSeats - item.Bus.SeatsAvailable)
-                                {
-                                    <tr><td style="border:solid; border-color:black;">&nbsp;</td><td style="border-color:white;">@i</td></tr>
-                                }
-                                else
-                                {
-                                    <tr><td width="50px;" style="border:solid; border-color:black; background-color:red;">&nbsp;</td><td style="border-color:white;">@i</td></tr>
-                                }
-                            }
-                        </table>
+                        
                     </td>
                 </tr>
             </table>
