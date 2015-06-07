@@ -46,7 +46,7 @@ namespace Argo.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Departure,Destination,DepartTime,ReturnTime,Event")] Trip trip, FormCollection frm)
+        public ActionResult Create([Bind(Include = "Id,Departure,Destination,DepartTime,ReturnTime,Event,EventDescription")] Trip trip, FormCollection frm)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +90,7 @@ namespace Argo.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Departure,Destination,DepartTime,ReturnTime,Type,Event,Busid")] Trip trip)
+        public ActionResult Edit([Bind(Include = "Id,Departure,Destination,DepartTime,ReturnTime,Type,Event,EventDescription")] Trip trip)
         {
             if (ModelState.IsValid)
             {

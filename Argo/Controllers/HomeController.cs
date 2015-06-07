@@ -1,6 +1,7 @@
 ﻿using Argo.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -12,7 +13,7 @@ namespace Argo.Controllers
         public ActionResult Index()
         {
             ArgoContext context = new ArgoContext();
-            return View(context.Trips.Take(3));
+            return View(context.Trips.Include(x => x.Bus).Take(3));
         }
 
         public ActionResult About()
