@@ -22,7 +22,7 @@ namespace Argo.Models
                 }
                 else
                 {
-                    return Price / (NumberOfSeats - SeatsAvailable);
+                    return Math.Round(Price / (NumberOfSeats - SeatsAvailable), 2);
                 }
             }
         }
